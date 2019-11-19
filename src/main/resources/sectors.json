@@ -1,0 +1,59 @@
+{
+    "Player": {
+        "Spawn": "kitchen",
+        "Direction": "north",
+        "Contents": ["egg"]
+    },
+    "Items": {
+        "test1": { "Image": "test1.png" },
+        "bunny": { "Image": "bunny.png" },
+        "egg": { "Image": "egg.png" },
+        "test2": { "Image": "test2.png" }
+    },
+    "Sectors": {
+        "kitchen": {
+            "Name": "Kitchen",
+            "Text": "Enter Kitchen",
+            "Images": "kitchen_1-direction.png",
+            "Surfaces": {
+                "North": {
+                    "Entrances": ["window1"]
+                },
+                "East": {
+                    "Entrances": ["living_room", "wc"],
+                    "Contents": ["test1"]
+                },
+                "South": {
+                    "Contents": ["test1"]
+                },
+                "West": {}
+            }
+        },
+        "window1": {
+            "Name": "Window",
+            "Text": "Look through window",
+            "Images": "window_1-direction.png",
+            "Surfaces": {
+                "North": {
+                    "Entrances": ["kitchen"],
+                    "Contents": ["test2"]
+                }
+            }
+        },
+        "living_room": {
+            "Name": "Living Room",
+            "Text": "Enter Living Room",
+            "Images": "living_room_1-direction.png",
+            "Surfaces": {
+                "North": {},
+                "East": {},
+                "South": {
+                    "Entrances": []
+                },
+                "West": {
+                    "Entrances": ["kitchen"]
+                }
+            }
+        }
+    }
+}
