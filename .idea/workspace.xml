@@ -62,13 +62,18 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="F:/Program Files (x86)/Oracle/JavaFX Scene Builder 1.1/JavaFX Scene Builder 1.1.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Users\Martin\Desktop\All\University\IPPO\ippo-assignment-2\src\main\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -210,7 +215,8 @@
       <workItem from="1573775855882" duration="16225000" />
       <workItem from="1573830048185" duration="16636000" />
       <workItem from="1573932264975" duration="599000" />
-      <workItem from="1574124242707" duration="13855000" />
+      <workItem from="1574124242707" duration="14348000" />
+      <workItem from="1574178951935" duration="13401000" />
     </task>
     <servers />
   </component>
