@@ -29,12 +29,13 @@ public class WorldController {
 
 	public void surfaceSelected(String id) {
 		model.surfaceChanged(id);
-        ImageObject newImage = service.getImage(player.getSector().getId(), player.getDirection());
-        viewController.updateDisplay(newImage);
 	}
 	// called by the model; tells the view to update UI with new button choices corresponding to new sector
-	public void surfaceChanged(ArrayList choices) {
+	public void surfaceChanged(Sector sector, Direction direction, ArrayList choices) {
 		viewController.updateInterface(choices);
+		viewController.updateText(player.getName(), sector, direction);
+		ImageObject newImage = service.getImage(player.getSector().getId(), player.getDirection());
+		viewController.updateDisplay(newImage);
 	}
 
 }
