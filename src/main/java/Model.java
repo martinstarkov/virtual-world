@@ -83,6 +83,9 @@ public class Model {
                     }
                 }
 
+                /*
+                Old implementation of adding left, back, and right choices to choices array.
+
                 for (int d = 0; d < Direction.values().length; d++) {
                     Direction dir = Direction.values()[d];
                     if (sector.getSurface(dir) != null) {
@@ -97,6 +100,7 @@ public class Model {
                         }
                     }
                 }
+                */
 
                 map.replace(id, sector);
             }
@@ -141,25 +145,28 @@ public class Model {
 
         // same sector direction change
         Sector sector;
-        if (id == "left") {
-            player.setDirection(player.getSideDirection("left"));
-            sector = player.getSector();
-        } else if (id == "right") {
-            player.setDirection(player.getSideDirection("right"));
-            sector = player.getSector();
-        } else if (id == "back") {
-            player.setDirection(player.getSideDirection("back"));
-            sector = player.getSector();
+        // since id is either a direction string or id, this determines which one
+        Direction side = player.getSideDirection(id);
+        // turn
+        if (side != null) {
+            if (player.getSector().getSurface(side) != null) {
+                player.setDirection(side);
+                sector = player.getSector();
+            } else {
+                sector = null;
+            }
+            // sector change
         } else {
             sector = map.get(id);
+            System.out.println("Sector changed to: " + sector.getDisplayName());
         }
 
-        System.out.println("Sector: " + sector.getDisplayName() + ", Direction: " + player.getDirection());
+        //System.out.println("Sector: " + sector.getDisplayName() + ", Direction: " + player.getDirection());
 
-        if (sector != null) {
+        // the two necessary conditions for a surfaceChange, either the sector has changed, or the direction has changed AND the direction must have a surface
+        if (sector != null && (sector.getSurface(side) != null || side == null)) {
             player.setSector(sector);
-            ArrayList<Sector> newChoices = sector.getSurface(player.getDirection()).getEntrances();
-            controller.surfaceChanged(newChoices);
+            controller.surfaceChanged(player.getSector(), player.getDirection(), sector.getSurface(player.getDirection()).getEntrances());
         }
     }
 
