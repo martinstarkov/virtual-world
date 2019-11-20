@@ -18,17 +18,22 @@ public class Player implements Inventory {
         return direction;
     }
     public Direction getSideDirection(String side) {
-        Integer addToDirection = 0;
-        if (side == "left") {
-            addToDirection = 3;
-        } else if (side == "right") {
-            addToDirection = 1;
-        } else if (side == "back") {
-            addToDirection = 2;
+        // dirFactor is how far away a given relative direction is from the starting direction, eg "North, East, West", starting from North, West is +2, therefore dirFactor = 2
+        Integer dirFactor;
+        switch (side) {
+            case "right":
+                dirFactor = 1;
+                break;
+            case "back":
+                dirFactor = 2;
+                break;
+            case "left":
+                dirFactor = 3;
+                break;
+            default:
+                return null;
         }
-        Integer directionIndex = direction.ordinal();
-        return Direction.values()[(directionIndex + addToDirection) % Direction.values().length];
-
+        return Direction.values()[(direction.ordinal() + dirFactor) % Direction.values().length];
     }
     public void setDirection(Direction direction) {
         this.direction = direction;
