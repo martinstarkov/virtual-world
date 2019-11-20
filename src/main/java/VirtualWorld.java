@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,9 +27,9 @@ public class VirtualWorld extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            String viewerFxml = "WorldViewer.fxml";
+            String viewerFxml = "CustomWorldViewer.fxml";
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource(viewerFxml));
-            AnchorPane page = (AnchorPane) fxmlLoader.load();
+            BorderPane page = (BorderPane) fxmlLoader.load();
             Scene scene = new Scene(page);
             viewController = (FXMLController) fxmlLoader.getController();
             // initialise view controller
