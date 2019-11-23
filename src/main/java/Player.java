@@ -1,8 +1,8 @@
 public class Player implements Inventory {
-    Sector sector;
-    String name;
-    Direction direction;
-    Player(String name) {
+    private Sector sector;
+    private String name;
+    private Direction direction;
+    public Player(String name) {
         this.name = name;
     }
     public Sector getSector() {
@@ -17,6 +17,9 @@ public class Player implements Inventory {
     public Direction getDirection() {
         return direction;
     }
+
+
+    // improve this somehow
     public Direction getSideDirection(String side) {
         // dirFactor is how far away a given relative direction is from the starting direction, eg "North, East, West", starting from North, West is +2, therefore dirFactor = 2
         Integer dirFactor;
