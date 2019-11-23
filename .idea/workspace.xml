@@ -24,24 +24,46 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ippo-assignment-2" type="f1a62948:ProjectNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ippo-assignment-2" type="f1a62948:ProjectNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ippo-assignment-2" type="f1a62948:ProjectNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ippo-assignment-2" type="f1a62948:ProjectNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="ippo" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ippo-assignment2" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -71,6 +93,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Users\Martin\Desktop\All\University\IPPO\ippo-assignment2\src\main\java" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Users\Martin\Desktop\All\University\IPPO\ippo-assignment-2\src\main\resources" />
     </key>
@@ -87,8 +112,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ippo-assignment-2 [run]">
-    <configuration name="ippo-assignment-2 [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.ippo-assignment2 [jar]">
+    <configuration name="ippo-assignment2 [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -107,7 +132,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ippo-assignment-2 [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ippo-assignment2 [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -126,26 +151,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ippo-assignment-2 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ippo-assignment-2 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ippo-assignment2 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -164,7 +170,26 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ippo-assignment-2 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ippo-assignment2 [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ippo-assignment2 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -185,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ippo-assignment-2 [run]" />
-        <item itemvalue="Gradle.ippo-assignment-2 [build]" />
-        <item itemvalue="Gradle.ippo-assignment-2 [buildDependents]" />
-        <item itemvalue="Gradle.ippo-assignment-2 [buildNeeded]" />
-        <item itemvalue="Gradle.ippo-assignment-2 [clean]" />
+        <item itemvalue="Gradle.ippo-assignment2 [run]" />
+        <item itemvalue="Gradle.ippo-assignment2 [jar]" />
+        <item itemvalue="Gradle.ippo-assignment2 [clean]" />
+        <item itemvalue="Gradle.ippo-assignment2 [buildNeeded]" />
+        <item itemvalue="Gradle.ippo-assignment2 [buildDependents]" />
       </list>
     </recent_temporary>
   </component>
@@ -220,6 +245,8 @@
       <workItem from="1574219961422" duration="149000" />
       <workItem from="1574220585582" duration="3372000" />
       <workItem from="1574477755469" duration="1337000" />
+      <workItem from="1574479675499" duration="2072000" />
+      <workItem from="1574481913528" duration="6335000" />
     </task>
     <servers />
   </component>

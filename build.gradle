@@ -1,16 +1,17 @@
 /*
- * Gradle build file for ippo assignment 2 submission by Martin Starkov
+ * Build ippo assignment2
  *
- * 'gradle run'     - build and run the code
- * 'gradle jar'     - create a jar file for distribution
+ * common tasks are:
+ * 'gradle run'        - build and run the code
+ * 'gradle submission' - create a zip file for assignment submission
  *
  */
 
 apply plugin: 'java'
 
 /*********************************************************************************************
-* dependencies
-********************************************************************************************/
+ * dependencies
+ ********************************************************************************************/
 
 // this specifies the JavaFx libraries that the application requires, and the
 // online repository where they are found. gradle will automatically download
@@ -33,10 +34,8 @@ dependencies {
 	compile "org.openjfx:javafx-graphics:11:${platform}"
 	compile "org.openjfx:javafx-controls:11:${platform}"
 	compile "org.openjfx:javafx-fxml:11:${platform}"
-	compile "org.json:json:20090211"
-	compile group: 'commons-io', name: 'commons-io', version: '2.6'
-	compile 'com.google.guava:guava:21.0'
-
+	compile "org.json:json:20190722"
+	compile "commons-io:commons-io:2.6"
 }
 
 /*********************************************************************************************
@@ -50,15 +49,50 @@ dependencies {
 def mainClassName='Main'
 
 task run(type: JavaExec) {
-    group = "ippo"
-    description = "run assignment 2"
-    classpath sourceSets.main.runtimeClasspath
-    main = "${mainClassName}"
+	group = "ippo"
+	description = "run assignment 2"
+	classpath sourceSets.main.runtimeClasspath
+	main = "${mainClassName}"
 }
 
 jar {
-  	group = "ippo"
-    description = "create runnable jar file for assignment 2"
-    manifest { attributes 'Main-Class': "${mainClassName}" }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	group = "ippo"
+	description = "create runnable jar file for assignment 2"
+	manifest { attributes 'Main-Class': "${mainClassName}" }
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+/*********************************************************************************************
+ * create submission zip file
+ ********************************************************************************************/
+
+def zipFile = 'ippo-submission2.zip'
+def zipDir = projectDir.getPath()+'/submission'
+
+task prep(type: Copy) {
+  group = "other"
+  description = "prepare files for submission"
+  outputs.upToDateWhen { false }
+  from '.'
+  include 'doc/worksheet.pdf'
+  include 'src/'
+  include 'build.gradle'
+  include 'settings.gradle'
+  into "${project.buildDir}/submission"
+}
+
+task submission(type: Zip, dependsOn: prep) {
+  group = "ippo"
+  description = "create zip file for submission"
+  from "${project.buildDir}/submission"
+  archiveFileName = zipFile
+  destinationDirectory = new File(zipDir)
+  outputs.upToDateWhen { false }
+  doLast {
+    println "*************************************************************"
+    println "your submission is in the file: ${zipFile}"
+    println "in the directory: ${zipDir}"
+    println "Make sure that this is what you expect before submitting it."
+    println "*************************************************************"
+  }
 }
