@@ -185,10 +185,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ippo-assignment-2 [run]" />
         <item itemvalue="Gradle.ippo-assignment-2 [build]" />
         <item itemvalue="Gradle.ippo-assignment-2 [buildDependents]" />
         <item itemvalue="Gradle.ippo-assignment-2 [buildNeeded]" />
-        <item itemvalue="Gradle.ippo-assignment-2 [run]" />
         <item itemvalue="Gradle.ippo-assignment-2 [clean]" />
       </list>
     </recent_temporary>
@@ -218,6 +218,8 @@
       <workItem from="1574124242707" duration="14348000" />
       <workItem from="1574178951935" duration="13401000" />
       <workItem from="1574219961422" duration="149000" />
+      <workItem from="1574220585582" duration="3372000" />
+      <workItem from="1574477755469" duration="1337000" />
     </task>
     <servers />
   </component>

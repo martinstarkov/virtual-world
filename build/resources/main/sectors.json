@@ -1,6 +1,6 @@
 {
     "Player": {
-        "Spawn": "kitchen",
+        "Spawn": "libentrance",
         "Direction": "north",
         "Contents": ["egg"]
     },
@@ -11,48 +11,306 @@
         "test2": { "Image": "test2.png" }
     },
     "Sectors": {
-        "kitchen": {
-            "Name": "Kitchen",
-            "Text": "Enter Kitchen",
-            "Images": "kitchen_1-direction.png",
+        "mathstart": {
+            "Name": "Hallway",
+            "Text": "Enter door",
+            "Images": "mathstart-direction.png",
             "Surfaces": {
-                "North": {
-                    "Entrances": ["window1"]
+                "West": {
+                    "Entrances": ["mathhall1"]
                 },
-                "East": {
-                    "Entrances": ["living_room", "wc"],
-                    "Contents": ["test1"]
-                },
-                "South": {
-                    "Contents": ["test1"]
-                },
-                "West": {}
+                "North": {}
             }
         },
-        "window1": {
-            "Name": "Window",
-            "Text": "Look through window",
-            "Images": "window_1-direction.png",
+        "mathhall1": {
+            "Name": "Hallway",
+            "Text": "Enter hallway",
+            "Images": "mathhall1-direction.png",
             "Surfaces": {
-                "North": {
-                    "Entrances": ["kitchen"],
-                    "Contents": ["test2"]
+                "West": {
+                    "Entrances": ["mathhall2"]
+                },
+                "East": {
+                    "Entrances": ["mathstart"]
                 }
             }
         },
-        "living_room": {
-            "Name": "Living Room",
-            "Text": "Enter Living Room",
-            "Images": "living_room_1-direction.png",
+        "mathhall2": {
+            "Name": "Hallway",
+            "Text": "Enter hallway",
+            "Images": "mathhall2-direction.png",
+            "Surfaces": {
+                "West": {
+                    "Entrances": ["mathhall3"]
+                },
+                "East": {
+                    "Entrances": ["mathhall1"]
+                },
+                "North": {
+                    "Entrances": ["mathroom"]
+                },
+                "South": {}
+            }
+        },
+        "mathhall3": {
+            "Name": "Hallway",
+            "Text": "Enter hallway",
+            "Images": "mathhall3-direction.png",
+            "Surfaces": {
+                "West": {
+                    "Entrances": ["mathhall4"]
+                },
+                "East": {
+                    "Entrances": ["mathhall2"]
+                },
+                "North": {}
+            }
+        },
+        "mathhall4": {
+            "Name": "Hallway",
+            "Text": "Enter hallway",
+            "Images": "mathhall4-direction.png",
+            "Surfaces": {
+                "West": {
+                    "Entrances": ["mathcorridor"]
+                },
+                "East": {
+                    "Entrances": ["mathhall3"]
+                }
+            }
+        },
+        "mathroom": {
+            "Name": "Classroom",
+            "Text": "Enter classroom",
+            "Images": "mathroom-direction.png",
             "Surfaces": {
                 "North": {},
                 "East": {},
+                "West": {},
                 "South": {
-                    "Entrances": []
+                    "Entrances": ["mathhall2"]
+                }
+            }
+        },
+        "mathcorridor": {
+            "Name": "Corridor",
+            "Text": "Enter corridor",
+            "Images": "mathcorridor-direction.png",
+            "Surfaces": {
+                "West": {},
+                "East": {
+                    "Entrances": ["mathhall4"]
+                },
+                "North": {},
+                "South": {
+                    "Entrances": ["mathstairwell"]
+                }
+            }
+        },
+        "mathstairwell": {
+            "Name": "Stairwell",
+            "Text": "Use stairwell",
+            "Images": "mathstairwell-direction.png",
+            "Surfaces": {
+                "West": {
+                    "Entrances": ["mathexit"]
+                },
+                "East": {},
+                "North": {
+                    "Entrances": ["mathcorridor"]
+                },
+                "South": {}
+            }
+        },
+        "mathexit": {
+            "Name": "Doorway",
+            "Text": "Enter doorway",
+            "Images": "mathexit-direction.png",
+            "Surfaces": {
+                "West": {
+                    "Entrances": ["mathexit2"]
+                },
+                "East": {
+                    "Entrances": ["mathstairwell"]
+                }
+            }
+        },
+        "mathexit2": {
+            "Name": "Doorway",
+            "Text": "Enter doorway",
+            "Images": "mathexit2-direction.png",
+            "Surfaces": {
+                "West": {},
+                "East": {
+                    "Entrances": ["mathexit"]
+                },
+                "South": {
+                    "Entrances": ["mathramp1"]
+                }
+            }
+        },
+        "mathramp1": {
+            "Name": "Ramp",
+            "Text": "Use ramp",
+            "Images": "mathramp1-direction.png",
+            "Surfaces": {
+                "North": {
+                    "Entrances": ["mathexit2"]
+                },
+                "South": {
+                    "Entrances": ["mathramp2"]
+                }
+            }
+        },
+        "mathramp2": {
+            "Name": "Ramp",
+            "Text": "Use ramp",
+            "Images": "mathramp2-direction.png",
+            "Surfaces": {
+                "North": {
+                    "Entrances": ["mathramp1"]
+                },
+                "East": {},
+                "South": {},
+                "West": {
+                    "Entrances": ["path1"]
+                }
+            }
+        },
+        "path1": {
+            "Name": "Path",
+            "Text": "Walk Forward",
+            "Images": "path1-direction.png",
+            "Surfaces": {
+                "East": {
+                    "Entrances": ["mathramp2"]
                 },
                 "West": {
-                    "Entrances": ["kitchen"]
+                    "Entrances": ["path2"]
                 }
+            }
+        },
+        "path2": {
+            "Name": "Path",
+            "Text": "Walk Forward",
+            "Images": "path2-direction.png",
+            "Surfaces": {
+                "East": {
+                    "Entrances": ["path1"]
+                },
+                "West": {},
+                "South": {
+                    "Entrances": ["path3"]
+                }
+            }
+        },
+        "path3": {
+            "Name": "Path",
+            "Text": "Walk Forward",
+            "Images": "path3-direction.png",
+            "Surfaces": {
+                "West": {},
+                "South": {
+                    "Entrances": ["path4"]
+                },
+                "North": {
+                    "Entrances": ["path2"]
+                }
+            }
+        },
+        "path4": {
+            "Name": "Path",
+            "Text": "Walk Forward",
+            "Images": "path4-direction.png",
+            "Surfaces": {
+                "East": {},
+                "West": {
+                    "Entrances": ["path5"]
+                },
+                "South": {},
+                "North": {
+                    "Entrances": ["path3"]
+                }
+            }
+        },
+        "path5": {
+            "Name": "Path",
+            "Text": "Walk Forward",
+            "Images": "path5-direction.png",
+            "Surfaces": {
+                "East": {
+                    "Entrances": ["path4"]
+                },
+                "West": {
+                    "Entrances": ["path6"]
+                }
+            }
+        },
+        "path6": {
+            "Name": "Path",
+            "Text": "Walk Forward",
+            "Images": "path6-direction.png",
+            "Surfaces": {
+                "East": {
+                    "Entrances": ["path5"]
+                },
+                "West": {},
+                "North": {
+                    "Entrances": ["libentrance"]
+                },
+                "South": {}
+            }
+        },
+        "libentrance": {
+            "Name": "Library",
+            "Text": "Go to Library",
+            "Images": "libentrance-direction.png",
+            "Surfaces": {
+                "North": {
+                    "Entrances": ["libdoorway"]
+                },
+                "South": {
+                    "Entrances": ["path6"]
+                }
+            }
+        },
+        "libdoorway": {
+            "Name": "Library",
+            "Text": "Go to Library",
+            "Images": "libdoorway-direction.png",
+            "Surfaces": {
+                "North": {
+                    "Entrances": ["libup"]
+                },
+                "South": {
+                    "Entrances": ["libentrance"]
+                }
+            }
+        },
+        "libup": {
+            "Name": "Escalator",
+            "Text": "Use escalator",
+            "Images": "libup-direction.png",
+            "Surfaces": {
+                "North": {},
+                "South": {
+                    "Entrances": ["libdoorway"]
+                },
+                "East": {},
+                "West": {
+                    "Entrances": ["libmain"]
+                }
+            }
+        },
+        "libmain": {
+            "Name": "Library",
+            "Text": "Go to Library",
+            "Images": "libmain-direction.png",
+            "Surfaces": {
+                "East": {
+                    "Entrances": ["libup"]
+                },
+                "West": {}
             }
         }
     }
