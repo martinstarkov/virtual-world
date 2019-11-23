@@ -19,8 +19,7 @@ public class Model {
     }
     public void parseFile(String mapFilePath) {
         try {
-            URL path = this.getClass().getResource("sectors.json");
-            File file = Paths.get(path.toURI()).toFile();
+            File file = new File("src/main/resources/sectors.json");
             // Convert JSON file contents to string
             String content = FileUtils.readFileToString(file, "utf-8");
             JSONObject jsonContent = new JSONObject(content);
@@ -170,7 +169,17 @@ public class Model {
         // the two necessary conditions for a surfaceChange, either the sector has changed, or the direction has changed AND the direction must have a surface
         if (sector != null && (sector.getSurface(side) != null || side == null)) {
             player.setSector(sector);
-            controller.surfaceChanged(player.getSector(), player.getDirection(), sector.getSurface(player.getDirection()).getEntrances());
+            ArrayList<Sector> entrances = null;
+            if (sector.getSurface(player.getDirection()) != null) {
+                entrances = sector.getSurface(player.getDirection()).getEntrances();
+            }
+            HashMap<String, String> choices = new HashMap<String, String>();
+            if (entrances != null) {
+                for (int i = 0; i < entrances.size(); i++) {
+                    choices.put(entrances.get(i).getId(), entrances.get(i).getDisplayText());
+                }
+            }
+            controller.surfaceChanged(player.getSector(), player.getDirection(), choices);
         }
     }
 

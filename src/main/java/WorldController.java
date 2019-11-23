@@ -3,6 +3,7 @@ import javafx.scene.image.Image;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class WorldController {
 
@@ -31,7 +32,7 @@ public class WorldController {
 		model.surfaceChanged(id);
 	}
 	// called by the model; tells the view to update UI with new button choices corresponding to new sector
-	public void surfaceChanged(Sector sector, Direction direction, ArrayList choices) {
+	public void surfaceChanged(Sector sector, Direction direction, HashMap<String, String> choices) {
 		viewController.updateInterface(choices);
 		viewController.updateText(player.getName(), sector, direction);
 		ImageObject newImage = service.getImage(player.getSector().getId(), player.getDirection());

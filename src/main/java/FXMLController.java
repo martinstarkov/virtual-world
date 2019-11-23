@@ -9,6 +9,8 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FXMLController implements ViewController {
 
@@ -40,28 +42,25 @@ public class FXMLController implements ViewController {
     }
 
     @Override
-    public void updateInterface(ArrayList newChoices) {
+    public void updateInterface(HashMap<String, String> choices) {
         // remove all buttons between updates
         choiceBox.getItems().clear();
-        if (newChoices != null) {
-            Button lastButton = new Button();
-            for (int i = 0; i < newChoices.size(); i++) {
-                Sector sector = (Sector) newChoices.get(i);
-                Button button;
-                button = new Button(sector.getDisplayText());
-                button.setId(sector.getId());
-                choiceBox.getItems().add(button);
-                EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        buttonPressed(event);
-                    }
-                };
-                button.setOnAction(event);
-                button.setLayoutX(lastButton.getLayoutX() + i * 70);
-                button.setLayoutY(14.0);
-                lastButton = button;
-            }
+        // counter for displacing buttons' relative positions
+        int i = 0;
+        for (Map.Entry choice : choices.entrySet()) {
+            String id = (String) choice.getKey();
+            String displayText = (String) choice.getValue();
+            Button button = new Button(displayText);
+            button.setId(id);
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    buttonPressed(event);
+                }
+            };
+            button.setOnAction(event);
+            choiceBox.getItems().add(button);
+            i++;
         }
     }
 
