@@ -17,7 +17,7 @@ public class Surface implements Inventory {
     public Direction getDirection() {
         return direction;
     }
-    public void setEntrances(ArrayList entrances) {
+    public void setEntrances(ArrayList<Sector> entrances) {
         this.entrances = entrances;
     }
     public ArrayList<Sector> getEntrances() {

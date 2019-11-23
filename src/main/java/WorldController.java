@@ -15,8 +15,8 @@ public class WorldController {
 
 		player = new Player("Martin");
 		model = new Model(this, player);
-		model.parseFile("src/main/resources/sectors.json");
-		service = new LocalService("src/main/resources/sector_images/");
+		model.parseFile("sectors.json");
+		service = new LocalService("resources");
 		// model.printMap("entrances");
 	    // image = service.getImage(player.getSector().getName(), 0);
 	}

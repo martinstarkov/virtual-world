@@ -1,7 +1,7 @@
 public class Player implements Inventory {
-    private Sector sector;
-    private String name;
-    private Direction direction;
+    private Sector sector = new Sector("", "", "");
+    private String name = "";
+    private Direction direction = null;
     public Player(String name) {
         this.name = name;
     }

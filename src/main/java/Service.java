@@ -1,3 +1,5 @@
+import java.net.URISyntaxException;
+
 public interface Service {
     String serviceName = "genericService";
     String serviceName();

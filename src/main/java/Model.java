@@ -1,11 +1,13 @@
+
 import java.io.File;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.*;
 
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 
 public class Model {
     private WorldController controller;
@@ -15,10 +17,10 @@ public class Model {
         this.controller = controller;
         this.player = player;
     }
-
     public void parseFile(String mapFilePath) {
         try {
-            File file = new File(mapFilePath);
+            URL path = this.getClass().getResource("sectors.json");
+            File file = Paths.get(path.toURI()).toFile();
             // Convert JSON file contents to string
             String content = FileUtils.readFileToString(file, "utf-8");
             JSONObject jsonContent = new JSONObject(content);
@@ -144,21 +146,23 @@ public class Model {
         // change this to match player direction
 
         // same sector direction change
-        Sector sector;
+        Sector sector = null;
         // since id is either a direction string or id, this determines which one
         Direction side = player.getSideDirection(id);
         // turn
         if (side != null) {
-            if (player.getSector().getSurface(side) != null) {
-                player.setDirection(side);
-                sector = player.getSector();
-            } else {
-                sector = null;
+            if (player.getSector() != null) {
+                if (player.getSector().getSurface(side) != null) {
+                    player.setDirection(side);
+                    sector = player.getSector();
+                } else {
+                    sector = null;
+                }
             }
             // sector change
         } else {
             sector = map.get(id);
-            System.out.println("Sector changed to: " + sector.getDisplayName());
+            //System.out.println("Sector changed to: " + sector.getDisplayName());
         }
 
         //System.out.println("Sector: " + sector.getDisplayName() + ", Direction: " + player.getDirection());

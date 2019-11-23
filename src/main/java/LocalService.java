@@ -1,8 +1,8 @@
-import javafx.scene.image.Image;
-
 import java.io.File;
-import java.io.FilenameFilter;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Paths;
 
 public class LocalService implements Service {
     String serviceName = "localService";
@@ -15,7 +15,21 @@ public class LocalService implements Service {
     }
 
     public ImageObject getImage(String id, Direction direction) {
-        File folder = new File (imageDirectory);
+        File folder = null;
+        try {
+            //String parent = this.getClass().getResource("CustomWorldViewer.fxml").toURI().getPath();
+            //File temp = new File(parent);
+            //folder = new File(temp.getParent());
+
+            // represent the path portion of the URL as a file
+            URL url = this.getClass().getResource("CustomWorldViewer.fxml");
+            File file = new File( url.getPath( ) );
+            // get the parent of the file
+            String parentPath = file.getParent( );
+            folder = Paths.get(parentPath).toFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String imageName = id + "-" + direction.toString().toLowerCase();
         File[] matchingFiles = folder.listFiles((dir, name) -> {
             // look for files that start with the sector name and with in an acceptable image format (png / jpg)
