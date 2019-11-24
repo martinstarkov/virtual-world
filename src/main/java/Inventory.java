@@ -1,3 +1,7 @@
+import java.util.HashMap;
+
 public interface Inventory {
-    // add to inventory, fetch inventory contents, remove from inventory
+    void addToInventory(Item item);
+    void removeFromInventory(Item item);
+    HashMap<String, Item> getContents();
 }

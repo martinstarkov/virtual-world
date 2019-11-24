@@ -1,7 +1,10 @@
+import java.util.HashMap;
+
 public class Player implements Inventory {
     private Sector sector = new Sector("", "", "");
     private String name = "";
     private Direction direction = null;
+    private HashMap<String, Item> contents = new HashMap<String, Item>();
     public Player(String name) {
         this.name = name;
     }
@@ -40,5 +43,19 @@ public class Player implements Inventory {
     }
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+    @Override
+    public void addToInventory(Item item) {
+        contents.put(item.getId(), item);
+    }
+
+    @Override
+    public void removeFromInventory(Item item) {
+        contents.remove(item.getId());
+    }
+
+    @Override
+    public HashMap<String, Item> getContents() {
+        return contents;
     }
 }
