@@ -13,6 +13,7 @@ public class Model {
     private WorldController controller;
     private Player player;
     private HashMap<String, Sector> map = new HashMap<String, Sector>();
+    private HashMap<String, Item> items = new HashMap<String, Item>();
     public Model(WorldController controller, Player player) {
         this.controller = controller;
         this.player = player;
@@ -29,9 +30,26 @@ public class Model {
             JSONObject jSectors = (JSONObject) jsonContent.get("Sectors");
             // general note: the reason we have to iterate over each sector twice is because the surfaces use sector ids for their entrances so the sector ids must be generated first
 
-            // iterate over all sectors and give each a unique id, and a name corresponding to the JSON name
-            for (Iterator i = jSectors.keys(); i.hasNext();) {
+            // iterate over all items and give each a unique id, and item object
+            for (Iterator i = jItems.keys(); i.hasNext();) {
                 String id = (String) i.next();
+                if (!items.containsKey(id)) {
+                    JSONObject jItem = (JSONObject) jItems.get(id);
+                    String displayName = (String) jItem.get("Name");
+                    String path = (String) jItem.get("Image");
+                    if (displayName != null && path != null) {
+                        Item item = new Item(new DrawableItem(id, displayName, path));
+                        items.put(id, item);
+                    } else {
+                        throw new java.lang.RuntimeException("Failed to find display name or text for item " + id);
+                    }
+                } else {
+                    throw new java.lang.RuntimeException("Failed to create custom item object for " + id);
+                }
+            }
+            // iterate over all sectors and give each a unique id, and a name corresponding to the JSON name
+            for (Iterator l = jSectors.keys(); l.hasNext();) {
+                String id = (String) l.next();
                 if (!map.containsKey(id)) {
                     JSONObject jSector = (JSONObject) jSectors.get(id);
                     String name = (String) jSector.get("Name");
@@ -40,14 +58,14 @@ public class Model {
                         Sector sector = new Sector(id, name, text);
                         map.put(id, sector);
                     } else {
-                        throw new java.lang.RuntimeException("Failed to find display name or text for " + id);
+                        throw new java.lang.RuntimeException("Failed to find display name or text for sector " + id);
                     }
                 } else {
                     throw new java.lang.RuntimeException("Failed to create custom sector object for " + id);
                 }
             }
 
-            // iterate over all the sectors again and populate their surfaces
+            // iterate over all the sectors again and populate their surfaces / contents
             for (Map.Entry mapElement : map.entrySet()) {
 
                 String id = (String) mapElement.getKey();
@@ -74,6 +92,23 @@ public class Model {
                                         if (key != null) {
                                             if (map.get(key) != null) {
                                                 surface.getEntrances().add(map.get(key));
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (jDirection.has("Contents")) {
+                            JSONArray contents = (JSONArray) jDirection.get("Contents");
+                            // check that contents array is not empty
+                            if (contents != null) {
+                                if (contents.length() != 0) {
+                                    for (int k = 0; k < contents.length(); k++) {
+                                        String key = contents.getString(k);
+                                        if (key != null) {
+                                            Item item = items.get(key);
+                                            if (item != null) {
+                                                surface.addToInventory(item);
                                             }
                                         }
                                     }
@@ -108,6 +143,20 @@ public class Model {
 
             player.setDirection(Direction.valueOf(((String) jPlayer.get("Direction")).toUpperCase()));
             player.setSector(map.get((String) jPlayer.get("Spawn")));
+            JSONArray jContents = (JSONArray) jPlayer.get("Contents");
+            if (jContents != null) {
+                if (jContents.length() != 0) {
+                    for (int k = 0; k < jContents.length(); k++) {
+                        String key = jContents.getString(k);
+                        if (key != null) {
+                            Item item = items.get(key);
+                            if (item != null) {
+                                player.addToInventory(item);
+                            }
+                        }
+                    }
+                }
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -179,7 +228,19 @@ public class Model {
                     choices.put(entrances.get(i).getId(), entrances.get(i).getDisplayText());
                 }
             }
-            controller.surfaceChanged(player.getSector(), player.getDirection(), choices);
+            ArrayList<String> availableSides = new ArrayList<String>();
+            for (Direction dir : Direction.values()) {
+                if (sector.getSurface(dir) != null) {
+                    if (dir == player.getSideDirection("left")) {
+                        availableSides.add("left");
+                    } else if (dir == player.getSideDirection("right")) {
+                        availableSides.add("right");
+                    } else if (dir == player.getSideDirection("back")) {
+                        availableSides.add("back");
+                    }
+                }
+            }
+            controller.surfaceChanged(choices, availableSides);
         }
     }
 
@@ -191,5 +252,18 @@ public class Model {
             }
         }
         return false;
+    }
+
+    public void updateContainers(String id) {
+        // player has put down an item
+        if (player.getContents().containsKey(id)) {
+            player.removeFromInventory(items.get(id));
+            player.getSector().getSurface(player.getDirection()).addToInventory(items.get(id));
+            // player has picked up an item
+        } else if (id != "") {
+            player.getSector().getSurface(player.getDirection()).removeFromInventory(items.get(id));
+            player.addToInventory(items.get(id));
+        }
+        controller.inventoryUpdate();
     }
 }

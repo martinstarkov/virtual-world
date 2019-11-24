@@ -26,17 +26,31 @@ public class WorldController {
 		this.viewController = vc;
 		viewController.setWorldController(this);
 		surfaceSelected(player.getSector().getId());
+		stateChange("");
 	}
 
 	public void surfaceSelected(String id) {
 		model.surfaceChanged(id);
 	}
-	// called by the model; tells the view to update UI with new button choices corresponding to new sector
-	public void surfaceChanged(Sector sector, Direction direction, HashMap<String, String> choices) {
-		viewController.updateInterface(choices);
-		viewController.updateText(player.getName(), sector, direction);
+	// called by the model; tells the view to update UI with new button choices corresponding to new area
+	public void surfaceChanged(HashMap<String, String> choices, ArrayList<String> availableSides) {
+		if (player.getSector().getSurface(player.getDirection()) != null) {
+			viewController.updateMenu(player.getContents(), player.getSector().getSurface(player.getDirection()).getContents());
+		} else {
+			viewController.updateMenu(player.getContents(), null);
+		}
+		viewController.updateInterface(choices, availableSides);
+		viewController.updateText(player.getName(), player.getSector().getId(), player.getSector().getDisplayName(), player.getSector().getDisplayText(), player.getDirection());
 		ImageObject newImage = service.getImage(player.getSector().getId(), player.getDirection());
 		viewController.updateDisplay(newImage);
 	}
 
+    public void stateChange(String id) {
+		model.updateContainers(id);
+    }
+
+	public void inventoryUpdate() {
+		//viewController.updateInventory();
+		viewController.updateMenu(player.getContents(), player.getSector().getSurface(player.getDirection()).getContents());
+	}
 }
