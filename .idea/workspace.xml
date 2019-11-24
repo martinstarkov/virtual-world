@@ -75,8 +75,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,11 +93,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Users\Martin\Desktop\All\University\IPPO\ippo-assignment2\src\main\java" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Users\Martin\Desktop\All\University\IPPO\ippo-assignment-2\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Users\Martin\Desktop\All\University\IPPO\ippo-assignment2\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,7 +247,7 @@
       <workItem from="1574477755469" duration="1337000" />
       <workItem from="1574479675499" duration="2072000" />
       <workItem from="1574481913528" duration="6335000" />
-      <workItem from="1574540866675" duration="3059000" />
+      <workItem from="1574540866675" duration="15137000" />
     </task>
     <servers />
   </component>

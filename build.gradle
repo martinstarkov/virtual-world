@@ -59,7 +59,13 @@ jar {
 	group = "ippo"
 	description = "create runnable jar file for assignment 2"
 	manifest { attributes 'Main-Class': "${mainClassName}" }
-	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+  into 'resources', {
+      from { 
+        configurations.compile.collect { 
+          it.isDirectory() ? it : zipTree(it) 
+        } 
+      }
+  }
 }
 
 /*********************************************************************************************

@@ -15,7 +15,11 @@
       <children>
         <VBox fx:id="inputBox" prefHeight="124.0" prefWidth="449.0">
           <children>
-            <ToolBar fx:id="choiceBox" minHeight="24.0" prefHeight="24.0" prefWidth="358.0" />
+            <ToolBar fx:id="choiceBox" minHeight="24.0" prefHeight="24.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+              <items>
+                <HBox fx:id="toolBoxHBox" alignment="TOP_LEFT" prefHeight="14.0" prefWidth="425.0" />
+              </items>
+            </ToolBar>
             <HBox fx:id="arrowBox" prefHeight="100.0" prefWidth="200.0">
               <children>
                 <Button fx:id="left" alignment="CENTER" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="76.0" prefWidth="125.0" rotate="180.0" scaleX="0.4" scaleY="0.6" scaleZ="1.0" style="-fx-shape: &quot;M 0 -3.5 v 7 l 4 -3.5 z&quot;; &#10;-fx-background-color:grey;" text="" textAlignment="LEFT" translateX="70.0">
@@ -45,11 +49,7 @@
     </HBox>
   </bottom>
   <center>
-    <ImageView id="" fx:id="imageView" fitHeight="222.75" fitWidth="415.0000305175781" pickOnBounds="true" preserveRatio="false" smooth="false" BorderPane.alignment="CENTER">
-      <image>
-        <Image url="@../../../../../../../coasterhead_emoji.png" />
-      </image>
-    </ImageView>
+    <ImageView id="" fx:id="imageView" fitHeight="222.75" fitWidth="415.0000305175781" pickOnBounds="true" preserveRatio="false" smooth="false" BorderPane.alignment="CENTER" />
   </center>
   <right>
     <TextArea fx:id="console" disable="true" focusTraversable="false" prefHeight="276.0" prefWidth="151.0" wrapText="true" />
@@ -57,19 +57,20 @@
   <top>
     <MenuBar fx:id="menu">
       <menus>
-        <Menu mnemonicParsing="false" text="File">
+        <Menu mnemonicParsing="false" text="Put Down" fx:id="putDownMenu">
           <items>
-            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="ItemName" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="">
+        <Menu mnemonicParsing="false" text="Pick Up" fx:id="pickUpMenu" />
+        <Menu disable="true" mnemonicParsing="false" style="-fx-opacity: 1.0;" text="">
           <graphic>
-            <Text fx:id="directionIndicator" strokeType="OUTSIDE" strokeWidth="0.0" text="" translateX="170.0" translateY="0.0" />
+            <Text fx:id="directionIndicator" strokeType="OUTSIDE" strokeWidth="0.0" text="" translateX="50.0" translateY="0.0" />
           </graphic>
         </Menu>
-        <Menu mnemonicParsing="false" text="">
+        <Menu disable="true" mnemonicParsing="false" style="-fx-opacity: 1.0;" text="">
           <graphic>
-            <Text fx:id="lastAction" strokeType="OUTSIDE" strokeWidth="0.0" text="" translateX="250.0" />
+            <Text fx:id="lastAction" focusTraversable="false" mouseTransparent="false" strokeType="OUTSIDE" strokeWidth="0.0" text="" translateX="100.0" />
           </graphic>
         </Menu>
       </menus>

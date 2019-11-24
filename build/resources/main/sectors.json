@@ -5,10 +5,22 @@
         "Contents": ["egg"]
     },
     "Items": {
-        "test1": { "Image": "test1.png" },
-        "bunny": { "Image": "bunny.png" },
-        "egg": { "Image": "egg.png" },
-        "test2": { "Image": "test2.png" }
+        "test1": {
+            "Name": "Test 1",
+            "Image": "test1.png"
+        },
+        "bunny": {
+            "Name": "Bunny",
+            "Image": "bunny.png"
+        },
+        "egg": {
+            "Name": "Egg",
+            "Image": "egg.png"
+        },
+        "test2": {
+            "Name": "Test 2",
+            "Image": "test2.png"
+        }
     },
     "Sectors": {
         "mathstart": {
@@ -63,7 +75,9 @@
                 "East": {
                     "Entrances": ["mathhall2"]
                 },
-                "North": {}
+                "North": {
+                    "Contents": ["bunny"]
+                }
             }
         },
         "mathhall4": {
@@ -99,7 +113,8 @@
             "Surfaces": {
                 "West": {},
                 "East": {
-                    "Entrances": ["mathhall4"]
+                    "Entrances": ["mathhall4"],
+                    "Contents": ["test2"]
                 },
                 "North": {},
                 "South": {
@@ -296,7 +311,9 @@
                 "South": {
                     "Entrances": ["libdoorway"]
                 },
-                "East": {},
+                "East": {
+                    "Contents": ["test1"]
+                },
                 "West": {
                     "Entrances": ["libmain"]
                 }
@@ -308,7 +325,7 @@
             "Images": "libmain-direction.png",
             "Surfaces": {
                 "East": {
-                    "Entrances": ["libup"]
+                    "Entrances": ["libup", "mathhall2"]
                 },
                 "West": {}
             }
