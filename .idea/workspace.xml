@@ -75,8 +75,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -91,6 +91,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -112,7 +113,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ippo-assignment2 [run]">
+  <component name="RunManager" selected="Gradle.ippo-assignment2 [jar]">
     <configuration name="ippo-assignment2 [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -144,25 +145,6 @@
         <option name="taskNames">
           <list>
             <option value="buildNeeded" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ippo-assignment2 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -208,11 +190,30 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ippo-assignment2 [submission]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="submission" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ippo-assignment2 [run]" />
         <item itemvalue="Gradle.ippo-assignment2 [jar]" />
-        <item itemvalue="Gradle.ippo-assignment2 [clean]" />
+        <item itemvalue="Gradle.ippo-assignment2 [run]" />
+        <item itemvalue="Gradle.ippo-assignment2 [submission]" />
         <item itemvalue="Gradle.ippo-assignment2 [buildNeeded]" />
         <item itemvalue="Gradle.ippo-assignment2 [buildDependents]" />
       </list>
@@ -248,6 +249,11 @@
       <workItem from="1574479675499" duration="2072000" />
       <workItem from="1574481913528" duration="6335000" />
       <workItem from="1574540866675" duration="15137000" />
+      <workItem from="1574631529250" duration="4889000" />
+      <workItem from="1574639726148" duration="32725000" />
+      <workItem from="1574672880409" duration="2590000" />
+      <workItem from="1574711238423" duration="69000" />
+      <workItem from="1574712202525" duration="610000" />
     </task>
     <servers />
   </component>
