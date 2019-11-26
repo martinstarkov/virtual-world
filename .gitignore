@@ -1,7 +1,6 @@
-*.JPG
-*.png
-*.jar
-*.bin
-*.lock
-.idea/workspace.xml
-build
+gradlew
+gradlew.bat
+.gradle/
+.idea/
+build/
+gradle/
