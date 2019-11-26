@@ -5,6 +5,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,7 @@ public class VirtualWorld extends Application {
         worldController = new WorldController();
         worldController.initialise();
         // if not using javafx, make sure you call
-        // worldController.setupViewController(viewController);
+        // worldController.setup(viewController);
         // here with your custom ViewController implementation
         launch(args);
         System.exit(0);
@@ -26,13 +27,14 @@ public class VirtualWorld extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            String viewerFxml = "CustomWorldViewer.fxml";
-            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource(viewerFxml));
+            // change fxml file location here
+            URL url = this.getClass().getResource("CustomWorldViewer.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(url);
             BorderPane page = (BorderPane) fxmlLoader.load();
             Scene scene = new Scene(page);
             viewController = (FXMLController) fxmlLoader.getController();
-            // initialise view controller
-            worldController.setupViewController(viewController);
+            // initialise view controller and initial interface conditions
+            worldController.setup(viewController);
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
