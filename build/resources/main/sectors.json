@@ -1,333 +1,372 @@
 {
     "Player": {
-        "Spawn": "libentrance",
-        "Direction": "north",
-        "Contents": ["egg"]
+        "Spawn": "split",
+        "Direction": "west",
+        "Contents": ["book", "frame"]
     },
     "Items": {
-        "test1": {
-            "Name": "Test 1",
-            "Image": "test1.png"
+        "bottle": {
+            "Name": "Bottle"
         },
-        "bunny": {
-            "Name": "Bunny",
-            "Image": "bunny.png"
+        "rubiks_cube": {
+            "Name": "Rubik's Cube"
+        },
+        "clock": {
+            "Name": "Clock"
+        },
+        "book": {
+            "Name": "Book"
         },
         "egg": {
-            "Name": "Egg",
-            "Image": "egg.png"
+            "Name": "Egg"
         },
-        "test2": {
-            "Name": "Test 2",
-            "Image": "test2.png"
+        "carrot": {
+            "Name": "Carrot"
+        },
+        "frame": {
+            "Name": "Frame"
+        },
+        "flower": {
+            "Name": "Flower"
+        },
+        "moomin": {
+          "Name": "Moomin"
         }
     },
     "Sectors": {
-        "mathstart": {
-            "Name": "Hallway",
-            "Text": "Enter door",
-            "Images": "mathstart-direction.png",
+        "fries": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "fries-direction.JPG",
             "Surfaces": {
+                "East": {},
                 "West": {
-                    "Entrances": ["mathhall1"]
+                    "Entrances": ["mid_stairs"]
+                },
+                "South": {},
+                "North": {}
+            }
+        },
+        "mid_stairs": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "mid_stairs-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["fries"]
+                },
+                "West": {
+                    "Entrances": ["split"]
+                },
+                "South": {},
+                "North": {}
+            }
+        },
+        "split": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "split-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["mid_stairs"]
+                },
+                "West": {
+                    "Entrances": ["left_1", "right_1"],
+                    "Contents": ["moomin"]
+                },
+                "South": {},
+                "North": {}
+            }
+        },
+        "left_1": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "left_1-direction.JPG",
+            "Surfaces": {
+                "East": {
+                    "Entrances": ["split"]
+                },
+                "West": {
+                    "Entrances": ["field_fork"]
+                },
+                "South": {},
+                "North": {}
+            }
+        },
+        "right_1": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "right_1-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["split"]
+                },
+                "West": {
+                    "Entrances": ["right_2"],
+                    "Contents": ["flower"]
+                },
+                "South": {},
+                "North": {
+                    "Entrances": ["loading_dock"]
+                }
+            }
+        },
+        "right_2": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "right_2-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["right_1"]
+                },
+                "West": {
+                    "Entrances": ["right_3"],
+                    "Contents": ["carrot"]
+                },
+                "South": {},
+                "North": {
+                    "Entrances": ["umbrella"]
+                }
+            }
+        },
+        "right_3": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "right_3-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["right_2"]
+                },
+                "West": {},
+                "South": {
+                    "Entrances": ["the_bench"]
                 },
                 "North": {}
             }
         },
-        "mathhall1": {
-            "Name": "Hallway",
-            "Text": "Enter hallway",
-            "Images": "mathhall1-direction.png",
+        "the_bench": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "the_bench-direction.JPG",
             "Surfaces": {
-                "West": {
-                    "Entrances": ["mathhall2"]
-                },
-                "East": {
-                    "Entrances": ["mathstart"]
-                }
-            }
-        },
-        "mathhall2": {
-            "Name": "Hallway",
-            "Text": "Enter hallway",
-            "Images": "mathhall2-direction.png",
-            "Surfaces": {
-                "West": {
-                    "Entrances": ["mathhall3"]
-                },
-                "East": {
-                    "Entrances": ["mathhall1"]
-                },
-                "North": {
-                    "Entrances": ["mathroom"]
-                },
-                "South": {}
-            }
-        },
-        "mathhall3": {
-            "Name": "Hallway",
-            "Text": "Enter hallway",
-            "Images": "mathhall3-direction.png",
-            "Surfaces": {
-                "West": {
-                    "Entrances": ["mathhall4"]
-                },
-                "East": {
-                    "Entrances": ["mathhall2"]
-                },
-                "North": {
-                    "Contents": ["bunny"]
-                }
-            }
-        },
-        "mathhall4": {
-            "Name": "Hallway",
-            "Text": "Enter hallway",
-            "Images": "mathhall4-direction.png",
-            "Surfaces": {
-                "West": {
-                    "Entrances": ["mathcorridor"]
-                },
-                "East": {
-                    "Entrances": ["mathhall3"]
-                }
-            }
-        },
-        "mathroom": {
-            "Name": "Classroom",
-            "Text": "Enter classroom",
-            "Images": "mathroom-direction.png",
-            "Surfaces": {
-                "North": {},
                 "East": {},
-                "West": {},
-                "South": {
-                    "Entrances": ["mathhall2"]
-                }
-            }
-        },
-        "mathcorridor": {
-            "Name": "Corridor",
-            "Text": "Enter corridor",
-            "Images": "mathcorridor-direction.png",
-            "Surfaces": {
-                "West": {},
-                "East": {
-                    "Entrances": ["mathhall4"],
-                    "Contents": ["test2"]
-                },
-                "North": {},
-                "South": {
-                    "Entrances": ["mathstairwell"]
-                }
-            }
-        },
-        "mathstairwell": {
-            "Name": "Stairwell",
-            "Text": "Use stairwell",
-            "Images": "mathstairwell-direction.png",
-            "Surfaces": {
                 "West": {
-                    "Entrances": ["mathexit"]
+                    "Contents": ["rubiks_cube"]
                 },
-                "East": {},
+                "South": {
+                    "Entrances": ["play"]
+                },
                 "North": {
-                    "Entrances": ["mathcorridor"]
-                },
-                "South": {}
+                    "Entrances": ["right_3"]
+                }
             }
         },
-        "mathexit": {
-            "Name": "Doorway",
-            "Text": "Enter doorway",
-            "Images": "mathexit-direction.png",
+        "field_fork": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "field_fork-direction.JPG",
             "Surfaces": {
+                "East": {                    
+                    "Entrances": ["left_1"]
+                },
                 "West": {
-                    "Entrances": ["mathexit2"]
+                    "Entrances": ["play"]
                 },
-                "East": {
-                    "Entrances": ["mathstairwell"]
-                }
-            }
-        },
-        "mathexit2": {
-            "Name": "Doorway",
-            "Text": "Enter doorway",
-            "Images": "mathexit2-direction.png",
-            "Surfaces": {
-                "West": {},
-                "East": {
-                    "Entrances": ["mathexit"]
-                },
-                "South": {
-                    "Entrances": ["mathramp1"]
-                }
-            }
-        },
-        "mathramp1": {
-            "Name": "Ramp",
-            "Text": "Use ramp",
-            "Images": "mathramp1-direction.png",
-            "Surfaces": {
-                "North": {
-                    "Entrances": ["mathexit2"]
-                },
-                "South": {
-                    "Entrances": ["mathramp2"]
-                }
-            }
-        },
-        "mathramp2": {
-            "Name": "Ramp",
-            "Text": "Use ramp",
-            "Images": "mathramp2-direction.png",
-            "Surfaces": {
-                "North": {
-                    "Entrances": ["mathramp1"]
-                },
-                "East": {},
                 "South": {},
-                "West": {
-                    "Entrances": ["path1"]
-                }
+                "North": {}
             }
         },
-        "path1": {
+        "play": {
             "Name": "Path",
-            "Text": "Walk Forward",
-            "Images": "path1-direction.png",
+            "Text": "Walk",
+            "Images": "play-direction.JPG",
             "Surfaces": {
-                "East": {
-                    "Entrances": ["mathramp2"]
-                },
-                "West": {
-                    "Entrances": ["path2"]
-                }
-            }
-        },
-        "path2": {
-            "Name": "Path",
-            "Text": "Walk Forward",
-            "Images": "path2-direction.png",
-            "Surfaces": {
-                "East": {
-                    "Entrances": ["path1"]
+                "East": {                    
+                    "Entrances": ["field_fork"]
                 },
                 "West": {},
-                "South": {
-                    "Entrances": ["path3"]
-                }
-            }
-        },
-        "path3": {
-            "Name": "Path",
-            "Text": "Walk Forward",
-            "Images": "path3-direction.png",
-            "Surfaces": {
-                "West": {},
-                "South": {
-                    "Entrances": ["path4"]
-                },
+                "South": {},
                 "North": {
-                    "Entrances": ["path2"]
+                    "Entrances": ["the_bench"]
                 }
             }
         },
-        "path4": {
+        "umbrella": {
             "Name": "Path",
-            "Text": "Walk Forward",
-            "Images": "path4-direction.png",
+            "Text": "Walk",
+            "Images": "umbrella-direction.JPG",
             "Surfaces": {
                 "East": {},
+                "West": {},
+                "South": {
+                    "Entrances": ["right_2"]
+                },
+                "North": {
+                    "Entrances": ["connector"]
+                }
+            }
+        },
+        "connector": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "connector-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["balcony"]
+                },
+                "West": {},
+                "South": {
+                    "Entrances": ["umbrella"]
+                },
+                "North": {}
+            }
+        },
+        "balcony": {
+            "Name": "Path",
+            "Text": "Walk",
+            "Images": "balcony-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["loading_dock"]
+                },
                 "West": {
-                    "Entrances": ["path5"]
+                    "Entrances": ["connector"]
                 },
                 "South": {},
                 "North": {
-                    "Entrances": ["path3"]
+                    "Entrances": ["foodcourtout"]
                 }
             }
         },
-        "path5": {
+        "loading_dock": {
             "Name": "Path",
-            "Text": "Walk Forward",
-            "Images": "path5-direction.png",
+            "Text": "Walk",
+            "Images": "loading_dock-direction.JPG",
             "Surfaces": {
-                "East": {
-                    "Entrances": ["path4"]
+                "East": {},
+                "West": {
+                    "Entrances": ["balcony"]
+                },
+                "South": {
+                    "Entrances": ["right_1"]
+                },
+                "North": {}
+            }
+        },
+        "foodcourtout": {
+            "Name": "Courtyard",
+            "Text": "Walk",
+            "Images": "foodcourtout-direction.JPG",
+            "Surfaces": {
+                "South": {
+                    "Entrances": ["balcony"]
+                },
+                "North": {
+                    "Entrances": ["foodcourtin"]
+                }
+            }
+        },
+        "foodcourtin": {
+            "Name": "Path",
+            "Text": "Food Court",
+            "Images": "foodcourtin-direction.JPG",
+            "Surfaces": {
+                "South": {
+                    "Entrances": ["foodcourtout"]
+                },
+                "North": {
+                    "Entrances": ["foodcourtmain"]
+                }
+            }
+        },
+        "foodcourtmain": {
+            "Name": "Food Court",
+            "Text": "Walk",
+            "Images": "foodcourtmain-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["chick"]
                 },
                 "West": {
-                    "Entrances": ["path6"]
+                    "Entrances": ["star1"]
+                },
+                "South": {
+                    "Entrances": ["foodcourtin"]
+                },
+                "North": {}
+            }
+        },
+        "chick": {
+            "Name": "Chick-Fil-A",
+            "Text": "Chick-Fil-A",
+            "Images": "chick-direction.JPG",
+            "Surfaces": {
+                "East": {
+                    "Contents": ["egg"]
+                },
+                "West": {
+                    "Entrances" : ["foodcourtmain"]
+                },
+                "South": {},
+                "North": {}
+            }
+        },
+        "star1": {
+            "Name": "Starbucks",
+            "Text": "Starbucks",
+            "Images": "star1-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["foodcourtmain"]
+                },
+                "West": {
+                    "Entrances": ["star2"]
+                },
+                "North": {
+                    "Contents": ["bottle"]
                 }
             }
         },
-        "path6": {
-            "Name": "Path",
-            "Text": "Walk Forward",
-            "Images": "path6-direction.png",
+        "star2": {
+            "Name": "Starbucks",
+            "Text": "Walk",
+            "Images": "star2-direction.JPG",
             "Surfaces": {
-                "East": {
-                    "Entrances": ["path5"]
+                "East": {                    
+                    "Entrances": ["star1"]
+                },
+                "West": {
+                    "Entrances": ["comp"]
+                },
+                "North": {}
+            }
+        },
+        "comp": {
+            "Name": "Help Desk",
+            "Text": "Walk",
+            "Images": "comp-direction.JPG",
+            "Surfaces": {
+                "East": {                    
+                    "Entrances": ["star2"]
                 },
                 "West": {},
                 "North": {
-                    "Entrances": ["libentrance"]
+                    "Entrances": ["international"]
                 },
                 "South": {}
             }
         },
-        "libentrance": {
-            "Name": "Library",
-            "Text": "Go to Library",
-            "Images": "libentrance-direction.png",
+        "international": {
+            "Name": "International Center",
+            "Text": "Walk",
+            "Images": "international-direction.JPG",
             "Surfaces": {
-                "North": {
-                    "Entrances": ["libdoorway"]
-                },
-                "South": {
-                    "Entrances": ["path6"]
-                }
-            }
-        },
-        "libdoorway": {
-            "Name": "Library",
-            "Text": "Go to Library",
-            "Images": "libdoorway-direction.png",
-            "Surfaces": {
-                "North": {
-                    "Entrances": ["libup"]
-                },
-                "South": {
-                    "Entrances": ["libentrance"]
-                }
-            }
-        },
-        "libup": {
-            "Name": "Escalator",
-            "Text": "Use escalator",
-            "Images": "libup-direction.png",
-            "Surfaces": {
+                "East": {},
+                "West": {},
                 "North": {},
                 "South": {
-                    "Entrances": ["libdoorway"]
-                },
-                "East": {
-                    "Contents": ["test1"]
-                },
-                "West": {
-                    "Entrances": ["libmain"]
+                    "Entrances": ["comp"]
                 }
-            }
-        },
-        "libmain": {
-            "Name": "Library",
-            "Text": "Go to Library",
-            "Images": "libmain-direction.png",
-            "Surfaces": {
-                "East": {
-                    "Entrances": ["libup", "mathhall2"]
-                },
-                "West": {}
             }
         }
     }
