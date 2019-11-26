@@ -1,7 +1,6 @@
-import java.net.URISyntaxException;
-
 public interface Service {
+
     String serviceName = "genericService";
     String serviceName();
-    ImageObject getImage(String id, Direction direction);
+    ImageObject getImage(String id, String direction);
 }

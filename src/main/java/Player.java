@@ -1,13 +1,20 @@
 import java.util.HashMap;
 
 public class Player implements Inventory {
+
     private Sector sector = new Sector("", "", "");
     private String name = "";
+    //must be a perfect square
+    private Integer inventoryLimit = 9;
     private Direction direction = null;
     private HashMap<String, Item> contents = new HashMap<String, Item>();
-    public Player(String name) {
+
+    public Player(String name, Integer inventoryLimit) {
         this.name = name;
+        this.inventoryLimit = inventoryLimit;
     }
+
+    public Integer getInventoryLimit() { return inventoryLimit; }
     public Sector getSector() {
         return sector;
     }
@@ -21,8 +28,7 @@ public class Player implements Inventory {
         return direction;
     }
 
-
-    // improve this somehow
+    // this returns the direction on a specific side relative to the player's current direction
     public Direction getSideDirection(String side) {
         // dirFactor is how far away a given relative direction is from the starting direction, eg "North, East, West", starting from North, West is +2, therefore dirFactor = 2
         Integer dirFactor;
@@ -41,9 +47,11 @@ public class Player implements Inventory {
         }
         return Direction.values()[(direction.ordinal() + dirFactor) % Direction.values().length];
     }
+
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
+
     @Override
     public void addToInventory(Item item) {
         contents.put(item.getId(), item);
