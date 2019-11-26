@@ -1,45 +1,40 @@
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Paths;
 
 public class LocalService implements Service {
-    String serviceName = "localService";
-    String imageDirectory;
-    LocalService(String imageDirectory) {
-        this.imageDirectory = imageDirectory;
-    }
+
+    private String serviceName = "localService";
+
+    public LocalService() {}
+
     public String serviceName() {
         return this.serviceName;
     }
 
-    public ImageObject getImage(String id, Direction direction) {
-        File folder = new File("src/main/resources");
-        String imageName = id + "-" + direction.toString().toLowerCase();
-        File[] matchingFiles = folder.listFiles((dir, name) -> {
-            // look for files that start with the sector name and with in an acceptable image format (png / jpg)
-            return name.startsWith(imageName) && (name.endsWith("png") || name.endsWith("PNG") || name.endsWith("JPG") || name.endsWith("jpg"));
-        });
+    public ImageObject getImage(String id, String direction) {
 
-
-            // look for files that start with the sector name and with in an acceptable image format (png / jpg)
-        File[] defaultFile = folder.listFiles((dir, name) -> {
-            // look for files that start with the sector name and with in an acceptable image format (png / jpg)
-            return name.startsWith("default") && (name.endsWith("png") || name.endsWith("jpg"));
-        });
-        if (matchingFiles != null) {
-            if (matchingFiles.length > 0) {
-                File file = matchingFiles[0].getAbsoluteFile();
-                ImageObject image = new ImageObject(file.toURI().toString());
-                return image;
-            }
+        String imageName = id + "-" + direction;
+        // this means the id is that of an item, therefore do not add the dash "-" formatting
+        // I did not have enough time to make id be the path of the file
+        if (direction == "") {
+            imageName = id;
         }
-        if (defaultFile != null) {
-            if (defaultFile.length > 0) {
-                return new ImageObject(defaultFile[0].toURI().toString());
-            }
+        // at the moment only supports JPG / PNG files
+        String path = imageName + ".JPG";
+        URL url = this.getClass().getResource(path);
+        if (url == null) {
+            // if URL was not found for ".JPG", try ".png"
+            path = imageName + ".png";
+            url = this.getClass().getResource(path);
         }
-        return null;
+        try {
+            // if no image found, return the default one
+            if (url == null) {
+                return new ImageObject("default.png");
+            }
+            return new ImageObject(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
