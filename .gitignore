@@ -1,4 +1,7 @@
-
 *.JPG
 *.png
 *.jar
+*.bin
+*.lock
+.idea/workspace.xml
+build
